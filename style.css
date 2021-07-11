@@ -1,0 +1,247 @@
+@charset "UTF-8";
+/* CSS Document */
+			
+body{
+	background: linear-gradient(#16284e, #223d77);
+	font-family: 'Montserrat', sans-serif;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+#westerosmap{
+	text-align: center;
+	margin: auto;
+	width: 100%;
+	float: none;
+	margin-top: -10px;
+	overflow: hidden;
+	transition: float 0.5s;
+	transition: width 0.5s;
+}
+
+#pageinfo{
+	margin-top: -965px;
+	margin-left: -10px;
+	padding-left: 20px;
+	padding-right: 0;
+	width: 30%;
+	color: white;
+	clear: left;
+	float: left;
+	transition: margin-left 0.3s;
+}
+
+#pageinfo h1{
+	color: #f0fd9f;
+}
+
+#pageinfo p{
+	font-size: 18px;
+}
+
+#pageinfo h6{
+	font-weight: 100;
+	clear: both;
+}
+
+#pageinfo a{
+	text-decoration: none;
+	color: #00ABFF;
+}
+
+#allarticles h2{
+	cursor: pointer;
+	color: #257FFF;
+}
+
+.articles{
+	width: 0%;
+	height: 100vh;
+	background-color: white;
+	float: right;
+	margin-top: -965px;
+	margin-left: -10px;
+	margin-right: -10px;
+	transition: width 0.5s;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.articles h1{
+	margin: 30px;
+	margin-top: -15px;
+	padding-left: 30px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	font-size: 45px;
+	font-weight: 600;
+}
+
+.articles h2{
+	margin:30px;
+	margin-top: -15px;
+	padding-left: 30px;
+	font-size: 30px;
+}
+
+.articles h4{
+	margin-left: 10px;
+	color: #6E6E6E;
+	margin-top: 5px;
+	text-decoration: none;
+}
+
+.p1{
+	margin: 30px;
+	margin-top: -25px;
+	width: 90%;
+	padding-left: 30px;
+	font-size: 17px;
+}
+
+.articles p{
+	margin: 30px;
+	margin-top: -25px;
+	width: 90%;
+	padding-left: 30px;
+	padding-right: 30px;
+	clear: both;
+}
+
+.articles #about {
+	margin-left: auto;
+	margin-right: auto;
+}
+.imgcaption {
+	font-size: 15px;
+	color: gray;
+}
+
+#westerosmap, img.map, map area{
+	outline: none;
+}
+
+#random{
+	white-space: nowrap;
+	margin-top: -20px;
+}
+
+ .button:first-child{
+	margin-top: 19px;
+}
+
+.button{
+	width: 180px;
+	text-align: center;
+	border-radius: 20px;
+	background-color: #1c3261;
+	margin-right: 20px;
+	margin-bottom: 15px;
+	padding: 0.3em;
+	border: solid 2px white;
+	display: inline-block;
+	white-space: nowrap;
+	float: left;
+	vertical-align: top;
+}
+
+.button:hover{
+	background-color: white;
+	color: #1c3261;
+	transition: background-color 0.4s;
+	cursor: pointer;
+}
+
+.imgsmall{
+	width: 45%;
+	margin-left: 60px;
+	margin-top: -20px;
+	margin-bottom: 25px;
+	float: left;
+}
+
+.quote{
+	text-align: center;
+}
+
+.img{
+	margin-top: -20px;
+	margin-left: 60px;
+	margin-right: auto;
+	margin-bottom: 30px;
+	text-align: center;
+	width: 87%;
+	height: auto;
+	position: relative;
+	box-shadow: 2px 2px 10px 0px grey;
+}
+
+.heading{
+	width:100%;
+	background-color: #d23939;
+	color: white;
+	box-shadow: 0px 2px 10px 0px grey;
+}
+
+.author{
+	margin-bottom: 10px;
+}
+
+.author img{
+	vertical-align: middle;
+	border: solid 2px #f0fd9f;
+	border-radius: 50%;
+}
+
+.author h4{
+	display: inline;
+	margin-top: -30px;
+}
+
+.authors h2{
+	text-align: center;
+}
+
+.authors img{
+	width: 100%;
+	height: auto;
+	margin-top: -20px;
+	padding-left: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.articles .authorabout p{
+	width: 85%;
+	margin-right: 0;
+	padding-right: 0;
+}
+
+.authorimg{
+	width: 30%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.learnmore {
+	background-color:#223d77;
+	text-align: center;
+	color: white;
+	padding: 0.3em;
+	width: 110px;
+	font-family: Arial, "sans-serif";
+	border-radius: 20px 20px 20px 20px;
+	border: solid 2px white;
+	white-space: nowrap;
+	text-decoration: none;
+}
+
+.learnmore:hover {
+	background-color: white;
+	color: #223d77;
+	transition: background-color 0.4s;
+	cursor: pointer;
+}
+			
+	
+			

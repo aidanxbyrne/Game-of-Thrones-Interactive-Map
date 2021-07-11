@@ -1,0 +1,319 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600" rel="stylesheet">
+		<title>Game of Thrones - Interactive Map</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="shortcut icon" href="images/g.ico" type="image/x-icon">
+		<link rel="icon" href="images/g.ico" type="image/x-icon">
+		
+		<script language="javascript" type="text/javascript">
+		
+			
+			// //Hides all articles when user selects a different one.
+			// function hideAll(){
+				
+			// 	var articles = new Array(document.getElementById("article1"), document.getElementById("article2"), document.getElementById("article3"),
+			// 	document.getElementById("article4"), document.getElementById("article5"), document.getElementById("article6"), document.getElementById("about"), document.getElementById("allarticles"));
+				
+			// 	for(i=0; i < articles.length; i++){
+			// 		articles[i].style.width = "0%";
+			// 	}
+			// }
+			
+			// //Changes map and information positioning when articles are opened
+			// function pageChange(){
+			// 	document.getElementById("pageinfo").style.marginLeft = "-1000px";
+			// 	document.getElementById("westerosmap").style.float = "left";
+			// 	document.getElementById("westerosmap").style.width = "60%";
+			// 	document.body.style.overflow = "hidden";
+			// }
+			
+			//Resets page to top if user has scrolled down and clicks on one of the buttons
+			function toTop(){
+				scroll(0,0)
+			}
+			
+			// //Opens article 1 when user selects on 'Beyond the Wall'.
+			// function openInfo1(){
+			// 	document.getElementById("article1").style.width = "40%";
+			// }
+			
+			// //Opens article 2 when user selects on 'The North'.
+			// function openInfo2(){
+			// 	document.getElementById("article2").style.width = "40%";
+			// }
+			
+			// //Opens article 3 when user selects on 'The Riverlands'.
+			// function openInfo3(){
+			// 	document.getElementById("article3").style.width = "40%";
+			// }
+			
+			// //Opens article 4 when user selects on 'The Westerlands'.
+			// function openInfo4(){
+			// 	document.getElementById("article4").style.width = "40%";	
+			// }
+			
+			// //Opens article 5 when user selects on 'The Stormlands'.
+			// function openInfo5(){
+			// 	document.getElementById("article5").style.width = "40%";
+			// }
+			
+			// //Opens article 5 when user selects on 'Dorne'.
+			// function openInfo6(){
+			// 	document.getElementById("article6").style.width = "40%";
+			// }
+			
+			// //Opens page about authors when user click the learn more button
+			// function openAbout(){
+			// 	document.getElementById("about").style.width = "40%";
+			// }
+			
+			// //Opens page containing all articles headlines, standfirsts and images which user can click into articles from there.
+			// function openAll(){
+			// 	document.getElementById("allarticles").style.width = "40%";
+			// }
+			
+			// //Chooses a random article
+			// function openRandom(){
+			// 	var random = Math.floor(Math.random()*6);
+				
+			// 	if(random == 0){
+			// 		hideAll();
+			// 		openInfo1();
+			// 	}
+			// 	if(random == 1){
+			// 		hideAll();
+			// 		openInfo2();
+			// 	}
+			// 	if(random == 2){
+			// 		hideAll();
+			// 		openInfo3();
+			// 	}
+			// 	if(random == 3){
+			// 		hideAll();
+			// 		openInfo4();
+			// 	}
+			// 	if(random == 4){
+			// 		hideAll();
+			// 		openInfo5();
+			// 	}
+			// 	if(random == 5){
+			// 		hideAll();
+			// 		openInfo6();
+			// 	}
+
+			// 	// hideAll();
+			// 	// `openInfo${random + 1}`();
+			// }
+			
+			//Closes all articles when user clicks the close button.
+			function closeInfo(){
+				hideAll();
+				document.getElementById("pageinfo").style.marginLeft = "-10px";
+				document.getElementById("westerosmap").style.width = "100%";
+				document.body.style.overflowY = "scroll";
+			}	
+		</script>
+	</head>
+	
+	<body>
+		<div id="westerosmap">
+			<img src="images/gradients.png" alt="" usemap="#Map" id="img" hidefocus="true" />
+			<map name="Map" id="Map">
+				<area alt="Beyond image map" title="" href="#" shape="poly" id="beyond" transform="scale(0.5)" coords="64,1,59,20,157,72,201,30,235,31,202,45,237,60,266,52,281,38,376,40,401,10,401,1"  />
+				
+				<area alt="North image map" title="" href="#" shape="poly" id="north" coords="373,40,290,36,255,63,222,86,222,133,184,142,170,124,168,126,172,152,145,160,142,142,114,127,97,141,119,171,97,184,94,199,101,225,84,217,68,218,64,222,52,246,49,268,55,293,80,282,84,317,104,335,119,340,135,342,109,357,88,355,76,357,55,389,62,404,84,409,105,408,145,396,181,420,197,430,205,416,213,414,221,413,227,415,235,418,243,418,255,416,278,407,293,367,307,349,314,326,310,304,319,333,327,346,334,349,350,340,358,349,372,343,382,337,391,319,398,289,455,300,457,295,454,290,426,276,432,269,426,254,413,240,416,235,417,229,414,216,413,214,403,219,407,203,420,204,426,201,439,187,445,165,441,148,452,163,464,182,465,170,478,129,474,109,465,103,447,105,435,109,403,99,393,78,390,60,378,41" />
+				
+				<area alt="Riverlands image map" title="" href="#" shape="poly" id="riverlands" coords="196,430,200,422,204,417,211,415,221,413,225,415,232,417,240,418,249,419,280,406,287,406,316,406,318,401,322,398,347,393,391,384,414,376,414,382,408,387,435,377,444,377,443,385,442,391,435,400,449,398,451,398,464,404,461,411,449,421,421,424,402,442,409,441,425,432,478,416,480,418,480,431,477,434,471,438,474,443,486,447,486,455,476,466,475,471,450,482,431,490,445,491,468,484,486,487,489,494,470,512,455,516,447,506,438,514,446,529,427,544,412,553,394,552,374,558,385,562,387,571,387,577,384,581,377,582,371,584,364,582,354,582,349,583,345,587,343,593,339,595,332,598,323,604,320,608,319,615,315,626,313,634,287,663,287,647,286,641,283,631,276,622,271,614,263,610,253,607,243,606,229,604,220,598,211,588,209,572,212,557,217,547,224,530,224,517,212,493,222,487,225,480,227,460,198,465,183,466,179,458,179,454,192,443,199,443" />
+				
+				<area alt="Westerlands image map" title="" href="#" shape="poly" id="westlands" coords="212,492,224,519,224,531,220,541,212,558,209,568,210,581,212,588,219,597,228,603,244,607,254,607,266,611,274,618,280,624,285,633,286,643,287,663,291,676,295,680,306,684,370,689,378,694,380,700,374,710,360,722,347,728,336,732,320,732,315,734,310,737,304,742,293,769,288,776,279,781,268,783,222,781,215,784,209,788,202,794,198,804,198,814,175,801,162,799,155,800,149,805,146,806,145,814,145,818,152,831,155,867,157,887,136,902,107,905,89,881,81,867,102,842,77,855,67,849,59,830,61,802,74,793,92,780,111,753,134,748,110,734,90,721,75,697,76,673,84,634,101,606,102,602,64,612,60,609,70,592,84,572,98,557,100,563,97,576,110,571,118,541,128,529,122,509,130,503,142,501,154,510,177,503,192,505,203,494,209,493" />
+				
+				<area alt="Stormlands image map" title="" href="#" shape="poly" id="stormlands" coords="385,562,388,572,387,575,387,579,382,581,375,584,369,582,362,579,358,579,353,580,350,582,346,585,343,590,339,594,329,599,322,606,319,611,317,622,314,627,311,635,297,652,287,663,287,666,288,674,291,675,295,680,303,683,312,684,366,689,376,693,380,695,379,699,378,702,372,713,363,720,349,728,339,731,320,732,313,734,307,738,305,743,302,748,292,771,289,777,284,779,278,781,260,784,239,781,221,781,215,784,211,785,205,792,200,797,198,803,198,814,245,828,262,827,270,825,281,822,291,805,295,796,302,795,308,795,309,798,318,796,335,799,348,799,361,793,376,803,400,804,415,804,422,814,445,806,447,784,463,780,465,770,479,762,462,759,452,763,441,764,430,752,426,754,425,759,425,764,416,763,416,757,409,754,396,751,400,740,410,736,418,737,428,736,432,713,429,707,439,708,449,702,450,698,451,688,454,681,453,679,444,677,438,671,438,652,452,631,441,617,437,616,439,626,439,633,421,647,411,651,405,643,399,642,394,648,381,650,370,654,351,650,352,640,363,643,372,643,387,636,396,617,399,610,393,609,404,591,425,589,421,600,427,600,434,604,438,601,453,595,453,591,453,587,445,586,456,573,463,560,472,533,471,531,466,532,461,537,452,539,448,550,428,558,419,556,416,558,416,562,395,560"/>
+				
+				<area alt="Dorne image map" title="" href="#" shape="poly" id="dorne" coords="157,888,151,828,145,815,149,802,159,799,168,799,196,814,221,821,249,828,266,827,279,822,285,817,296,799,299,793,306,796,310,797,321,804,321,809,302,832,297,842,324,849,337,846,376,856,382,856,403,861,412,871,431,870,440,861,452,849,470,853,478,864,489,863,487,872,476,889,462,902,440,908,435,909,437,915,420,929,398,930,379,927,349,926,327,917,310,930,297,932,285,924,273,929,235,931,230,922,215,931,176,932,166,923,163,914,164,905,162,895" />
+			</map>
+		</div>
+		
+		<div id="pageinfo">
+			<h1>
+				Welcome to the Game of Thrones<br> 
+				Interactive Map!
+			</h1>
+			<p>
+				This map is based on the fantasy fictional novels 'A Song of Ice and Fire' by George R. R. Martin and the television adaptation 'Game of Thrones'. You can explore the map of Westeros and see different regions as well as many of the major points of interest and locations. The map allows you to learn about different major events that have occurred around Westeros and the region in which they occur.<br><br>
+				Select one of the six regions on the map to reveal a news article about a major event that occured in that region. You can also click one of the buttons below to display a random article or all of the articles together.
+			</p>
+			
+			<div id="random">
+				<div id="randomBtn" class="button" onClick="toTop();">
+					Random Article
+				</div>
+				<br>
+				<div id="openAll" class="button" onClick="toTop();">
+					Show All
+				</div>
+			</div>
+			
+			<h6>All information on this page was written based on the authors knowledge of events in the television series 'Game of Thrones' and fact checked using the 'Game of Thrones Wiki' available at: <a href="http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki">http://gameofthrones.wikia.com/wiki/Game_of_Thrones_Wiki</a>. </h6>
+			
+			<div id="authors">
+				<h3>
+					Page Authors:
+				</h3>
+				<div class="author">
+					<img src="images/aidan.png" width="75px" height="75px" alt="Aidan">
+					<h4>- Aidan Byrne</h4>
+				</div>
+				<div class="author">
+					<img src="images/conor.png" width="75px" height="75px" alt="Conor">
+					<h4>- Conor McElearney</h4>
+				</div>
+				<div class="author">
+					<img src="images/hayden.png" width="75px" height="75px" alt="Hayden">
+					<h4>- Hayden Guy Nguyen</h4>
+				</div>
+
+				<div id="authorInfo" class="learnmore" onClick="toTop();">
+					Learn More
+				</div>
+			</div>
+		</div>
+		
+		<div id="allarticles" class="articles">
+			
+			<h4 onClick="closeInfo();"><button class = "close" >X - Close</button></h4>
+			
+			<div class="heading">
+				<h1>All Articles</h1>
+			</div>
+				
+			<h2 onClick="hideAll(); pageChange(); openInfo1();">Dragon Dies After Intense Battle Beyond The Wall</h2>
+			<div class="imgcaption">
+				<p>By <b>Aidan Byrne </b>on May 8, 2018</p>
+			</div>
+			<img src="images/dragon.png" alt="Dead Dragon" class="imgsmall">
+			<p>
+				A dragon has been killed during a violent battle between the army of the dead and a team of brave warriors north of The Wall. The fire-breathing beast was struck in the heart by an Ice spear thrown by the Night King.
+			</p><br>
+			
+			<h2 onClick="hideAll(); pageChange(); openInfo2();">Jon Snow Resurrected by Red Priestess Melisandre</h2>
+			<div class="imgcaption">
+				<p>By <b>Hayden Guy Nguyen</b>on May 8, 2018</p>
+			</div>
+			<img src="images/snow.png" alt="Jon Snow Awakening" class="imgsmall">
+			<p>
+				Jon Snow has been resurrected by Melisandre after being killed by members of the Night’s Watch. His murder is the result of a decision to allow the Wildlings to move south of the Wall to save them from the White Walkers.
+			</p><br>
+			
+			<h2 onClick="hideAll(); pageChange(); openInfo3();">King Stark and His Army Slaughtered at The Twins</h2>
+			<div class="imgcaption">
+				<p>By <b>Conor McElearney</b>on May 8, 2018</p>
+			</div>
+			<img src="images/wedding.png" alt="Catelyn Stark's throat being cut" class="imgsmall">
+			<p>King Robb Stark and hundreds of his men have been massacred in the great hall of The Twins. His wife Talisa and mother Catelyn were also murdered in the slaughter.</p>
+			<br>
+			
+			<h2 onClick="hideAll(); pageChange(); openInfo4();">Casterly Rock Overthrown in Siege by Targaryen Army</h2>
+			<div class="imgcaption">
+				<p>By <b>Aidan Byrne</b>on May 8, 2018</p>
+			</div>
+			<img src="images/casterly.png" alt="Unsullied at Casterly Rock" class="imgsmall">
+			<p>Daenerys Targaryen’s army of the Unsullied have taken over Casterly Rock, the historical home of House Lannister. The fortress which had previously never been successfully overthrown, fell victim to the Targaryen led siege.</p>
+			<br>
+			
+			<h2 onClick="hideAll(); pageChange(); openInfo5();">Hundreds of Fatalities as the Great Sept of Baelor is Destroyed by Wildfire</h2>
+			<div class="imgcaption">
+				<p>By <b>Conor McElearney</b>on May 8, 2018</p>
+			</div>
+			<img src="images/sept.png" alt="Great Sept of Baelor Exploding" class="imgsmall">
+			<p>An explosion has destroyed the Great Sept of Baelor during the Festival of the Mother, resulting in a large number of deaths including members of the Royal Court, Small Council and the majority of the High Sparrows.</p>
+			<br>
+			
+			<h2 onClick="hideAll(); pageChange(); openInfo6();">Princess Myrcella Baratheon Assassinated with Poison</h2>
+			<div class="imgcaption">
+				<p>By <b>Hayden Guy Nguyen</b>on May 8, 2018</p>
+			</div>
+			<img src="images/dornish.png" alt="Jaime Holding Myrcella's Corpse" class="imgsmall">
+			<p>Myrcella Baratheon, daughter of Cersei Lannister and Robert Baratheon, has been killed in an assassination orchestrated by Ellaria Sand and the Sand Snakes.</p>
+			<br>
+			
+		</div>
+		
+		<div id="article1" class="articles">
+		</div>
+	
+		<div id="article2" class="articles">
+			
+		</div>
+		
+		<div id="article3" class="articles">
+		
+		</div>
+		
+		<div id="article4" class="articles">
+		
+		</div>
+		
+		<div id="article5" class="articles">
+		
+		</div>
+		
+		<div id="article6" class="articles">
+		
+		</div>
+		
+		<div id="about" class="articles">
+			
+			<h4 onClick="closeInfo();"><button class = "close" >X - Close</button></h4>
+			
+			<div class="heading">
+				<h1>About The Authors</h1>
+			</div>
+				
+			<div class="authors">
+				<h2>Aidan Byrne</h2>
+				<div class="authorimg">
+					<img src="images/aidan.png" alt="Image of Aidan Byrne">
+				</div>
+				<br><br>
+				<div class="authorabout">
+					<p>
+						I’m Aidan and I'm from Ashbourne, Co. Meath. I was born on July 24th 1999 and I am currently studying Multimedia at Dublin City University. I have taught myself graphic design and have been doing so since I was 12 years old. I’ve become increasingly more interested with other forms of media such as web development, photography and video since beginning to study my degree. I hope to eventually go on to create my own media production company at some point in the future.
+					</p>
+				</div>
+			</div>
+			
+			<div class="authors">
+				<h2>Conor McElearney</h2>
+				<div class="authorimg">
+					<img src="images/conor.png" alt="Image of Conor McElearney">
+				</div>
+				<br><br>
+				<div class="authorabout">
+					<p>
+						I’m Conor and I am from Ashbourne, Co. Meath. I was born on Christmas Eve 1998. I completed my Leaving Certificate in 2017 and am now studying Multimedia in DCU. Outside of college, I train in Jiu Jitsu and work in Londis in Drogheda. I have dreams of working in video or sound production, but also love working with websites.
+					</p>
+				</div>
+			</div>
+			
+			<div class="authors">
+				<h2>Hayden Guy Nguyen</h2>
+				<div class="authorimg">
+					<img src="images/hayden.png" alt="Image of Hayden Guy Nguyen">
+				</div>
+				<br><br>
+				<div class="authorabout">
+					<p>
+						I’m Hayden, im from Blanchardstown, Dublin.  I was born on 15th February 1995.  I am studying Multimedia in DCU, however in the past I have taken courses in Languages, Law and Engineering.  I have great interest in music and performing, as well as graphic design, cooking and animation.  I am hoping to work in the VFX industry in the future.
+					</p>
+				</div>
+			</div>
+			<br>
+		</div>
+
+		<script src="ArticleData.js"></script>
+		<script src="./app.js"></script>
+	</body>
+</html>
