@@ -7,118 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="shortcut icon" href="images/g.ico" type="image/x-icon">
 		<link rel="icon" href="images/g.ico" type="image/x-icon">
-		
-		<script language="javascript" type="text/javascript">
-		
-			
-			// //Hides all articles when user selects a different one.
-			// function hideAll(){
-				
-			// 	var articles = new Array(document.getElementById("article1"), document.getElementById("article2"), document.getElementById("article3"),
-			// 	document.getElementById("article4"), document.getElementById("article5"), document.getElementById("article6"), document.getElementById("about"), document.getElementById("allarticles"));
-				
-			// 	for(i=0; i < articles.length; i++){
-			// 		articles[i].style.width = "0%";
-			// 	}
-			// }
-			
-			// //Changes map and information positioning when articles are opened
-			// function pageChange(){
-			// 	document.getElementById("pageinfo").style.marginLeft = "-1000px";
-			// 	document.getElementById("westerosmap").style.float = "left";
-			// 	document.getElementById("westerosmap").style.width = "60%";
-			// 	document.body.style.overflow = "hidden";
-			// }
-			
-			//Resets page to top if user has scrolled down and clicks on one of the buttons
-			function toTop(){
-				scroll(0,0)
-			}
-			
-			// //Opens article 1 when user selects on 'Beyond the Wall'.
-			// function openInfo1(){
-			// 	document.getElementById("article1").style.width = "40%";
-			// }
-			
-			// //Opens article 2 when user selects on 'The North'.
-			// function openInfo2(){
-			// 	document.getElementById("article2").style.width = "40%";
-			// }
-			
-			// //Opens article 3 when user selects on 'The Riverlands'.
-			// function openInfo3(){
-			// 	document.getElementById("article3").style.width = "40%";
-			// }
-			
-			// //Opens article 4 when user selects on 'The Westerlands'.
-			// function openInfo4(){
-			// 	document.getElementById("article4").style.width = "40%";	
-			// }
-			
-			// //Opens article 5 when user selects on 'The Stormlands'.
-			// function openInfo5(){
-			// 	document.getElementById("article5").style.width = "40%";
-			// }
-			
-			// //Opens article 5 when user selects on 'Dorne'.
-			// function openInfo6(){
-			// 	document.getElementById("article6").style.width = "40%";
-			// }
-			
-			// //Opens page about authors when user click the learn more button
-			// function openAbout(){
-			// 	document.getElementById("about").style.width = "40%";
-			// }
-			
-			// //Opens page containing all articles headlines, standfirsts and images which user can click into articles from there.
-			// function openAll(){
-			// 	document.getElementById("allarticles").style.width = "40%";
-			// }
-			
-			// //Chooses a random article
-			// function openRandom(){
-			// 	var random = Math.floor(Math.random()*6);
-				
-			// 	if(random == 0){
-			// 		hideAll();
-			// 		openInfo1();
-			// 	}
-			// 	if(random == 1){
-			// 		hideAll();
-			// 		openInfo2();
-			// 	}
-			// 	if(random == 2){
-			// 		hideAll();
-			// 		openInfo3();
-			// 	}
-			// 	if(random == 3){
-			// 		hideAll();
-			// 		openInfo4();
-			// 	}
-			// 	if(random == 4){
-			// 		hideAll();
-			// 		openInfo5();
-			// 	}
-			// 	if(random == 5){
-			// 		hideAll();
-			// 		openInfo6();
-			// 	}
-
-			// 	// hideAll();
-			// 	// `openInfo${random + 1}`();
-			// }
-			
-			//Closes all articles when user clicks the close button.
-			function closeInfo(){
-				hideAll();
-				document.getElementById("pageinfo").style.marginLeft = "-10px";
-				document.getElementById("westerosmap").style.width = "100%";
-				document.body.style.overflowY = "scroll";
-			}	
-		</script>
 	</head>
 	
 	<body>
+		<div class="container">
 		<div id="westerosmap">
 			<img src="images/gradients.png" alt="" usemap="#Map" id="img" hidefocus="true" />
 			<map name="Map" id="Map">
@@ -146,7 +38,7 @@
 				Select one of the six regions on the map to reveal a news article about a major event that occured in that region. You can also click one of the buttons below to display a random article or all of the articles together.
 			</p>
 			
-			<div id="random">
+			<div id="info-buttons">
 				<div id="randomBtn" class="button" onClick="toTop();">
 					Random Article
 				</div>
@@ -164,7 +56,7 @@
 				</h3>
 				<div class="author">
 					<img src="images/aidan.png" width="75px" height="75px" alt="Aidan">
-					<h4>- Aidan Byrne</h4>
+					<h4>- Aidan Byrne (Developer)</h4>
 				</div>
 				<div class="author">
 					<img src="images/conor.png" width="75px" height="75px" alt="Conor">
@@ -180,138 +72,11 @@
 				</div>
 			</div>
 		</div>
-		
-		<div id="allarticles" class="articles">
-			
-			<h4 onClick="closeInfo();"><button class = "close" >X - Close</button></h4>
-			
-			<div class="heading">
-				<h1>All Articles</h1>
-			</div>
-				
-			<h2 onClick="hideAll(); pageChange(); openInfo1();">Dragon Dies After Intense Battle Beyond The Wall</h2>
-			<div class="imgcaption">
-				<p>By <b>Aidan Byrne </b>on May 8, 2018</p>
-			</div>
-			<img src="images/dragon.png" alt="Dead Dragon" class="imgsmall">
-			<p>
-				A dragon has been killed during a violent battle between the army of the dead and a team of brave warriors north of The Wall. The fire-breathing beast was struck in the heart by an Ice spear thrown by the Night King.
-			</p><br>
-			
-			<h2 onClick="hideAll(); pageChange(); openInfo2();">Jon Snow Resurrected by Red Priestess Melisandre</h2>
-			<div class="imgcaption">
-				<p>By <b>Hayden Guy Nguyen</b>on May 8, 2018</p>
-			</div>
-			<img src="images/snow.png" alt="Jon Snow Awakening" class="imgsmall">
-			<p>
-				Jon Snow has been resurrected by Melisandre after being killed by members of the Night’s Watch. His murder is the result of a decision to allow the Wildlings to move south of the Wall to save them from the White Walkers.
-			</p><br>
-			
-			<h2 onClick="hideAll(); pageChange(); openInfo3();">King Stark and His Army Slaughtered at The Twins</h2>
-			<div class="imgcaption">
-				<p>By <b>Conor McElearney</b>on May 8, 2018</p>
-			</div>
-			<img src="images/wedding.png" alt="Catelyn Stark's throat being cut" class="imgsmall">
-			<p>King Robb Stark and hundreds of his men have been massacred in the great hall of The Twins. His wife Talisa and mother Catelyn were also murdered in the slaughter.</p>
-			<br>
-			
-			<h2 onClick="hideAll(); pageChange(); openInfo4();">Casterly Rock Overthrown in Siege by Targaryen Army</h2>
-			<div class="imgcaption">
-				<p>By <b>Aidan Byrne</b>on May 8, 2018</p>
-			</div>
-			<img src="images/casterly.png" alt="Unsullied at Casterly Rock" class="imgsmall">
-			<p>Daenerys Targaryen’s army of the Unsullied have taken over Casterly Rock, the historical home of House Lannister. The fortress which had previously never been successfully overthrown, fell victim to the Targaryen led siege.</p>
-			<br>
-			
-			<h2 onClick="hideAll(); pageChange(); openInfo5();">Hundreds of Fatalities as the Great Sept of Baelor is Destroyed by Wildfire</h2>
-			<div class="imgcaption">
-				<p>By <b>Conor McElearney</b>on May 8, 2018</p>
-			</div>
-			<img src="images/sept.png" alt="Great Sept of Baelor Exploding" class="imgsmall">
-			<p>An explosion has destroyed the Great Sept of Baelor during the Festival of the Mother, resulting in a large number of deaths including members of the Royal Court, Small Council and the majority of the High Sparrows.</p>
-			<br>
-			
-			<h2 onClick="hideAll(); pageChange(); openInfo6();">Princess Myrcella Baratheon Assassinated with Poison</h2>
-			<div class="imgcaption">
-				<p>By <b>Hayden Guy Nguyen</b>on May 8, 2018</p>
-			</div>
-			<img src="images/dornish.png" alt="Jaime Holding Myrcella's Corpse" class="imgsmall">
-			<p>Myrcella Baratheon, daughter of Cersei Lannister and Robert Baratheon, has been killed in an assassination orchestrated by Ellaria Sand and the Sand Snakes.</p>
-			<br>
-			
+
+		<div id="article-window" class="articleWindow">
+
 		</div>
-		
-		<div id="article1" class="articles">
-		</div>
-	
-		<div id="article2" class="articles">
-			
-		</div>
-		
-		<div id="article3" class="articles">
-		
-		</div>
-		
-		<div id="article4" class="articles">
-		
-		</div>
-		
-		<div id="article5" class="articles">
-		
-		</div>
-		
-		<div id="article6" class="articles">
-		
-		</div>
-		
-		<div id="about" class="articles">
-			
-			<h4 onClick="closeInfo();"><button class = "close" >X - Close</button></h4>
-			
-			<div class="heading">
-				<h1>About The Authors</h1>
-			</div>
-				
-			<div class="authors">
-				<h2>Aidan Byrne</h2>
-				<div class="authorimg">
-					<img src="images/aidan.png" alt="Image of Aidan Byrne">
-				</div>
-				<br><br>
-				<div class="authorabout">
-					<p>
-						I’m Aidan and I'm from Ashbourne, Co. Meath. I was born on July 24th 1999 and I am currently studying Multimedia at Dublin City University. I have taught myself graphic design and have been doing so since I was 12 years old. I’ve become increasingly more interested with other forms of media such as web development, photography and video since beginning to study my degree. I hope to eventually go on to create my own media production company at some point in the future.
-					</p>
-				</div>
-			</div>
-			
-			<div class="authors">
-				<h2>Conor McElearney</h2>
-				<div class="authorimg">
-					<img src="images/conor.png" alt="Image of Conor McElearney">
-				</div>
-				<br><br>
-				<div class="authorabout">
-					<p>
-						I’m Conor and I am from Ashbourne, Co. Meath. I was born on Christmas Eve 1998. I completed my Leaving Certificate in 2017 and am now studying Multimedia in DCU. Outside of college, I train in Jiu Jitsu and work in Londis in Drogheda. I have dreams of working in video or sound production, but also love working with websites.
-					</p>
-				</div>
-			</div>
-			
-			<div class="authors">
-				<h2>Hayden Guy Nguyen</h2>
-				<div class="authorimg">
-					<img src="images/hayden.png" alt="Image of Hayden Guy Nguyen">
-				</div>
-				<br><br>
-				<div class="authorabout">
-					<p>
-						I’m Hayden, im from Blanchardstown, Dublin.  I was born on 15th February 1995.  I am studying Multimedia in DCU, however in the past I have taken courses in Languages, Law and Engineering.  I have great interest in music and performing, as well as graphic design, cooking and animation.  I am hoping to work in the VFX industry in the future.
-					</p>
-				</div>
-			</div>
-			<br>
-		</div>
+	</div>
 
 		<script src="ArticleData.js"></script>
 		<script src="./app.js"></script>

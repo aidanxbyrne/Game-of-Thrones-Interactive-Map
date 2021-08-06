@@ -4,19 +4,31 @@
 body{
 	background: linear-gradient(#16284e, #223d77);
 	font-family: 'Montserrat', sans-serif;
-	overflow: hidden;
-	overflow-y: scroll;
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+.container{
+	width: 100%;
+  	height: 100vh;
+  	position: relative;
 }
 
 #westerosmap{
 	text-align: center;
-	margin: auto;
+	margin: auto 0;
+	padding: 0;
 	width: 100%;
 	float: none;
 	margin-top: -10px;
 	overflow: hidden;
 	transition: float 0.5s;
 	transition: width 0.5s;
+}
+
+#westerosmap, img.map, map area{
+	outline: none;
 }
 
 #pageinfo{
@@ -49,115 +61,75 @@ body{
 	color: #00ABFF;
 }
 
-#allarticles h2{
+.articleWindow{
+	width: 0%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	background-color: white;
+	position: absolute;
+	transition: width 0.5s;
+	overflow-x: scroll;
+}
+
+.heading{
+	width:100%;
+	background-color: #d23939;
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	padding: 5px 20px;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	justify-content: space-between;
+	white-space: nowrap;
+}
+
+.articleBody{
+	padding: 10px 40px;
+}
+
+.articlePreview{
+	display: block;
+}
+
+.articlePreview h2{
 	cursor: pointer;
 	color: #257FFF;
 }
 
-.articles{
-	width: 0%;
-	height: 100vh;
-	background-color: white;
-	float: right;
-	margin-top: -965px;
-	margin-left: -10px;
-	margin-right: -10px;
-	transition: width 0.5s;
-	overflow-y: scroll;
-	overflow-x: hidden;
-}
-
-.articles h1{
-	margin: 30px;
-	margin-top: -15px;
-	padding-left: 30px;
-	padding-bottom: 5px;
-	padding-top: 5px;
-	font-size: 45px;
-	font-weight: 600;
-}
-
-.articles h2{
-	margin:30px;
-	margin-top: -15px;
-	padding-left: 30px;
-	font-size: 30px;
-}
-
-.articles h4{
-	margin-left: 10px;
-	color: #6E6E6E;
-	margin-top: 5px;
-	text-decoration: none;
-}
-
-.p1{
-	margin: 30px;
-	margin-top: -25px;
-	width: 90%;
-	padding-left: 30px;
-	font-size: 17px;
-}
-
-.articles p{
-	margin: 30px;
-	margin-top: -25px;
-	width: 90%;
-	padding-left: 30px;
-	padding-right: 30px;
-	clear: both;
-}
-
-.articles #about {
-	margin-left: auto;
-	margin-right: auto;
-}
 .imgcaption {
 	font-size: 15px;
 	color: gray;
 }
 
-#westerosmap, img.map, map area{
-	outline: none;
-}
-
-#random{
-	white-space: nowrap;
-	margin-top: -20px;
-}
-
- .button:first-child{
-	margin-top: 19px;
-}
-
-.button{
-	width: 180px;
-	text-align: center;
-	border-radius: 20px;
-	background-color: #1c3261;
-	margin-right: 20px;
+#info-buttons{
+	display: flex;
+	align-items: center;
 	margin-bottom: 15px;
-	padding: 0.3em;
-	border: solid 2px white;
-	display: inline-block;
-	white-space: nowrap;
-	float: left;
-	vertical-align: top;
 }
 
-.button:hover{
-	background-color: white;
-	color: #1c3261;
-	transition: background-color 0.4s;
-	cursor: pointer;
-}
+	.button{
+		width: 180px;
+		text-align: center;
+		border-radius: 20px;
+		background-color: #1c3261;
+		padding: 0.4em;
+		margin-right: 10px;
+		border: solid 2px white;
+		white-space: nowrap;
+	}
+
+	.button:hover{
+		background-color: white;
+		color: #1c3261;
+		transition: background-color 0.4s;
+		cursor: pointer;
+	}
 
 .imgsmall{
 	width: 45%;
-	margin-left: 60px;
-	margin-top: -20px;
-	margin-bottom: 25px;
-	float: left;
 }
 
 .quote{
@@ -165,22 +137,13 @@ body{
 }
 
 .img{
-	margin-top: -20px;
-	margin-left: 60px;
+	/* margin-top: -20px; */
 	margin-right: auto;
-	margin-bottom: 30px;
 	text-align: center;
-	width: 87%;
+	width: 100%;
 	height: auto;
 	position: relative;
 	box-shadow: 2px 2px 10px 0px grey;
-}
-
-.heading{
-	width:100%;
-	background-color: #d23939;
-	color: white;
-	box-shadow: 0px 2px 10px 0px grey;
 }
 
 .author{
@@ -198,19 +161,6 @@ body{
 	margin-top: -30px;
 }
 
-.authors h2{
-	text-align: center;
-}
-
-.authors img{
-	width: 100%;
-	height: auto;
-	margin-top: -20px;
-	padding-left: 20px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 .articles .authorabout p{
 	width: 85%;
 	margin-right: 0;
@@ -218,9 +168,11 @@ body{
 }
 
 .authorimg{
-	width: 30%;
-	margin-left: auto;
-	margin-right: auto;
+	margin-right: 20px;
+}
+
+.authorimg img{
+	width: 200px;
 }
 
 .learnmore {
@@ -241,6 +193,12 @@ body{
 	color: #223d77;
 	transition: background-color 0.4s;
 	cursor: pointer;
+}
+
+.authorDetail{
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
 }
 			
 	
