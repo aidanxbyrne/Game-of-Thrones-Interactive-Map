@@ -7,11 +7,12 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<link rel="shortcut icon" href="images/g.ico" type="image/x-icon">
 		<link rel="icon" href="images/g.ico" type="image/x-icon">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
 	</head>
 	
 	<body>
 		<div class="container">
-		<div id="westerosmap">
+		<div id="westeros-map" class="westerosMap">
 			<img src="images/gradients.png" alt="" usemap="#Map" id="img" hidefocus="true" />
 			<map name="Map" id="Map">
 				<area alt="Beyond image map" title="" href="#" shape="poly" id="beyond" transform="scale(0.5)" coords="64,1,59,20,157,72,201,30,235,31,202,45,237,60,266,52,281,38,376,40,401,10,401,1"  />
@@ -28,7 +29,7 @@
 			</map>
 		</div>
 		
-		<div id="pageinfo">
+		<div id="page-info" class="pageInfo">
 			<h1>
 				Welcome to the Game of Thrones<br> 
 				Interactive Map!
@@ -38,7 +39,7 @@
 				Select one of the six regions on the map to reveal a news article about a major event that occured in that region. You can also click one of the buttons below to display a random article or all of the articles together.
 			</p>
 			
-			<div id="info-buttons">
+			<div id="info-buttons" class="infoButtons">
 				<div id="randomBtn" class="button" onClick="toTop();">
 					Random Article
 				</div>
@@ -74,7 +75,11 @@
 		</div>
 
 		<div id="article-window" class="articleWindow">
-
+			<div class="heading">
+				<h1 id="article-window-heading"></h1>
+				<i id="close" class="fas fa-times fa-lg" onClick="closeInfo();"></i>
+			</div>
+			<div id="article-window-content" class="articleBody"></div>
 		</div>
 	</div>
 

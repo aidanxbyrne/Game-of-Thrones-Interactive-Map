@@ -1,75 +1,68 @@
-@charset "UTF-8";
-/* CSS Document */
-			
 body{
-	background: linear-gradient(#16284e, #223d77);
 	font-family: 'Montserrat', sans-serif;
 	padding: 0;
 	margin: 0;
 	height: 100%;
+	overflow-x: hidden;
+	background: linear-gradient(#16284e, #223d77) no-repeat center center fixed;
+	background-size: cover;
 }
 
 .container{
-	width: 100%;
-  	height: 100vh;
   	position: relative;
 }
 
-#westerosmap{
+#westeros-map{
 	text-align: center;
 	margin: auto 0;
 	padding: 0;
 	width: 100%;
-	float: none;
-	margin-top: -10px;
-	overflow: hidden;
-	transition: float 0.5s;
-	transition: width 0.5s;
+	position: absolute;
+	transition: width 0.5s; 
 }
 
-#westerosmap, img.map, map area{
+#westeros-map, img.map, map area{
 	outline: none;
 }
 
-#pageinfo{
-	margin-top: -965px;
-	margin-left: -10px;
-	padding-left: 20px;
+.pageInfo{
+	padding-left: 40px;
 	padding-right: 0;
 	width: 30%;
 	color: white;
-	clear: left;
-	float: left;
-	transition: margin-left 0.3s;
+	transform: translateX(0%);
+	transition: transform 0.5s;
+	position: absolute;
 }
 
-#pageinfo h1{
-	color: #f0fd9f;
-}
+		.pageInfo h1{
+			color: #f0fd9f;
+		}
 
-#pageinfo p{
-	font-size: 18px;
-}
+		.pageInfo p{
+			font-size: 18px;
+		}
 
-#pageinfo h6{
-	font-weight: 100;
-	clear: both;
-}
+		.pageInfo h6{
+			font-weight: 100;
+			clear: both;
+		}
 
-#pageinfo a{
-	text-decoration: none;
-	color: #00ABFF;
-}
+		.pageInfo a{
+			text-decoration: none;
+			color: #00ABFF;
+		}
 
 .articleWindow{
-	width: 0%;
-	height: 100%;
+	width: 40%;
+	height: 100vh;
 	top: 0;
 	right: 0;
 	background-color: white;
 	position: absolute;
-	transition: width 0.5s;
-	overflow-x: scroll;
+	overflow-y: scroll;
+	transform: translateX(100%);
+	transition: transform 0.5s;
 }
 
 .heading{
@@ -78,13 +71,17 @@ body{
 	color: white;
 	font-size: 20px;
 	font-weight: 600;
-	padding: 5px 20px;
+	padding: 10px 40px;
 	display: flex;
 	align-items: center;
 	box-sizing: border-box;
 	justify-content: space-between;
 	white-space: nowrap;
 }
+		.heading i {
+			cursor: pointer;
+			color: #471212
+		}
 
 .articleBody{
 	padding: 10px 40px;
@@ -92,6 +89,7 @@ body{
 
 .articlePreview{
 	display: block;
+	margin-bottom: 40px;
 }
 
 .articlePreview h2{
@@ -99,45 +97,11 @@ body{
 	color: #257FFF;
 }
 
-.imgcaption {
-	font-size: 15px;
-	color: gray;
-}
-
-#info-buttons{
-	display: flex;
-	align-items: center;
-	margin-bottom: 15px;
-}
-
-	.button{
-		width: 180px;
-		text-align: center;
-		border-radius: 20px;
-		background-color: #1c3261;
-		padding: 0.4em;
-		margin-right: 10px;
-		border: solid 2px white;
-		white-space: nowrap;
-	}
-
-	.button:hover{
-		background-color: white;
-		color: #1c3261;
-		transition: background-color 0.4s;
-		cursor: pointer;
-	}
-
 .imgsmall{
 	width: 45%;
 }
 
-.quote{
-	text-align: center;
-}
-
 .img{
-	/* margin-top: -20px; */
 	margin-right: auto;
 	text-align: center;
 	width: 100%;
@@ -146,60 +110,82 @@ body{
 	box-shadow: 2px 2px 10px 0px grey;
 }
 
+		.imgcaption {
+			font-size: 15px;
+			color: gray;
+		}
+
 .author{
 	margin-bottom: 10px;
 }
 
-.author img{
-	vertical-align: middle;
-	border: solid 2px #f0fd9f;
-	border-radius: 50%;
-}
+		.authorDetail{
+			display: flex;
+			align-items: center;
+			margin-bottom: 20px;
+		}
 
-.author h4{
-	display: inline;
-	margin-top: -30px;
-}
+		.author h4{
+			display: inline;
+			margin-top: -30px;
+		}
 
-.articles .authorabout p{
-	width: 85%;
-	margin-right: 0;
-	padding-right: 0;
-}
+		.authorimg{
+			margin-right: 20px;
+		}
 
-.authorimg{
-	margin-right: 20px;
-}
+		.author img{
+			vertical-align: middle;
+			border: solid 2px #f0fd9f;
+			border-radius: 50%;
+		}
 
-.authorimg img{
-	width: 200px;
-}
+		.authorimg img{
+			width: 200px;
+		}
 
-.learnmore {
-	background-color:#223d77;
-	text-align: center;
-	color: white;
-	padding: 0.3em;
-	width: 110px;
-	font-family: Arial, "sans-serif";
-	border-radius: 20px 20px 20px 20px;
-	border: solid 2px white;
-	white-space: nowrap;
-	text-decoration: none;
-}
+	.infoButtons{
+		display: flex;
+		align-items: center;
+		margin-bottom: 15px;
+	}
+	
+		.button{
+			width: 180px;
+			text-align: center;
+			border-radius: 20px;
+			background-color: #1c3261;
+			padding: 0.4em;
+			margin-right: 10px;
+			border: solid 2px white;
+			white-space: nowrap;
+		}
+	
+		.button:hover{
+			background-color: white;
+			color: #1c3261;
+			transition: background-color 0.4s;
+			cursor: pointer;
+		}
 
-.learnmore:hover {
-	background-color: white;
-	color: #223d77;
-	transition: background-color 0.4s;
-	cursor: pointer;
-}
+		.learnmore {
+			background-color:#223d77;
+			text-align: center;
+			color: white;
+			padding: 0.3em;
+			width: 110px;
+			font-family: Arial, "sans-serif";
+			border-radius: 20px 20px 20px 20px;
+			border: solid 2px white;
+			white-space: nowrap;
+			text-decoration: none;
+		}
 
-.authorDetail{
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
-}
-			
+		.learnmore:hover {
+			background-color: white;
+			color: #223d77;
+			transition: background-color 0.4s;
+			cursor: pointer;
+		}
 	
 			

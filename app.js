@@ -1,4 +1,4 @@
-
+//MAP REGIONS
 const beyond = document.querySelector('#beyond');
 const north = document.querySelector('#north');
 const riverlands = document.querySelector('#riverlands');
@@ -6,95 +6,71 @@ const westlands = document.querySelector('#westlands');
 const stormlands = document.querySelector('#stormlands');
 const dorne = document.querySelector('#dorne');
 const regions = [ beyond, north, riverlands, westlands, stormlands, dorne];
-const articles = regions.map(article => article.article);
+
+//SECTIONS
+const westerosMap = document.querySelector("#westeros-map");
+const articleWindow = document.querySelector("#article-window");
+const pageInfo = document.querySelector(".pageInfo")
+const articleWindowHeading = document.querySelector("#article-window-heading");
+const articleWindowContent = document.querySelector("#article-window-content");
 
 //BUTTONS
-const aboutBtn = document.getElementById("authorInfo");
-const aboutSection = document.querySelector("#about");
-const allBtn = document.getElementById("openAll");
+const aboutBtn = document.querySelector("#authorInfo");
+const allBtn = document.querySelector("#openAll");
 const closeBtn = document.querySelectorAll("#close");
 const randomBtn = document.querySelector("#randomBtn");
 
-//NEW STUFF
-const articleWindow = document.querySelector("#article-window");
-
+//EVENT LISTENERS
 regions.forEach( (region) => {
-    region.addEventListener("mouseover", () => {
-        regionHover(region);
-    });
-    region.addEventListener("mouseout", () => {
-        regionHover(null);
-    });
-    region.addEventListener("click", () =>{
-        openInfo(region);
-    });
+    region.addEventListener("mouseover", () => regionHover(region));
+    region.addEventListener("mouseout", () => regionHover(null));
+    region.addEventListener("click", () => onRegionSelect(region));
 });
 
-aboutBtn.addEventListener("click", () =>{
-    openAuthor();
-});
-allBtn.addEventListener("click", () =>{
-    openAll();
-});
-randomBtn.addEventListener("click", () =>{
-    openRandom();
-})
+aboutBtn.addEventListener("click", () => onAuthorButtonSelect());
+allBtn.addEventListener("click", () => onAllSelect());
+randomBtn.addEventListener("click", () => onRandomSelect());
 
 
 //FUNCTIONS
 function regionHover(region){
-    if(region != null){
-        document.getElementById("img").src = `images/${region.id}.png`;
-    }
-    else{
-        document.getElementById("img").src = `images/gradients.png`;
-    }
+    document.getElementById("img").src = (region != null) ? `images/${region.id}.png` : `images/gradients.png`
 }
 
-function openInfo(region){
-    hideAll();
-    getArticleData(region);
-    pageChange();
+function onRegionSelect(region){
+    let { heading, articleContent} = getArticleData(region);
+    openWindow(heading, articleContent);
+}
+
+function openWindow(heading, content){
     toTop();
-    articleWindow.style.width = "40%";
+
+    pageInfo.style.transform = "translateX(-100%)";
+    westerosMap.style.width = "60%";
+    document.body.style.overflow = "hidden";
+
+    articleWindow.style.transform = 'translateX(0%)';
+    articleWindowHeading.innerHTML = heading;
+    articleWindowContent.innerHTML = content;
 }
 
 //Closes all articles when user clicks the close button.
 function closeInfo(){
-    hideAll();
-    document.getElementById("pageinfo").style.marginLeft = "-10px";
-    document.getElementById("westerosmap").style.width = "100%";
+    closeWindow();
+    pageInfo.style.transform = "translateX(0%)";
+    westerosMap.style.width = "100%";
     document.body.style.overflowY = "scroll";
 }	
 
 function getArticleData(region){
-    let heading, title, author, date, imgUrl, imgAlt, imgCaption;
+    let articleDataRes;
 
-    console.log(region);
-    if(regions.includes(region)){
-        
-        articleData.articles.forEach(art => {
-            if(region.id == art.id){
-                heading = art.heading;
-                title = art.title;
-                author = art.author;
-                date = art.date;
-                imgUrl = art.imgUrl;
-                imgAlt = art.imgAlt;
-                imgCaption = art.imgCaption;
-                articleBody = art.body;
-            }
-        });
-
-        articleWindow.innerHTML = `
-            <div class="heading">
-                <h1>${heading}</h1>
-                <h3 id="close" onClick="closeInfo();"">X</h3>
-            </div>
-
-            <div class="articleBody">
+    if(regions.includes(region)){    
+        articleData.articles.forEach(({id, heading, title, author, date, imgUrl, imgAlt, imgCaption, body}) => {
+            if(region.id == id){
+                const articleContent = `
                 <h2>${title}</h2>
-
+    
                 <div class="imgcaption">
                     <p>By <b>${author} </b>on ${date}</p>
                 </div>	
@@ -104,78 +80,54 @@ function getArticleData(region){
                 <div class="imgcaption">
                     <p><em>${imgCaption}</em></p>
                 </div>
-
+    
                 <div>
-                    ${articleBody}
+                    ${body}
                 </div>
-            </div>
-        `; 
-    }   
+            `;
+                articleDataRes = { heading, articleContent };
+            };
+        });
+    }
+    
+    return articleDataRes;
 }
 
 //Hides all articles when user selects a different one.
-function hideAll(){
-    articleWindow.style.width = "0%";
+function closeWindow(){
+    articleWindow.style.transform = 'translateX(100%)';
 }
-
-//Changes map and information positioning when articles are opened
-function pageChange(){
-    document.getElementById("pageinfo").style.marginLeft = "-1000px";
-    document.getElementById("westerosmap").style.float = "left";
-    document.getElementById("westerosmap").style.width = "60%";
-    document.body.style.overflow = "hidden";
-} 
 
 //Resets page to top if user has scrolled down and clicks on one of the buttons
 function toTop(){
     scroll(0,0)
 }
 
-function openAll(){
-    hideAll();
-    pageChange();
-    articleWindow.style.width = "40%";
-
+function onAllSelect(){
     let articleDetails = '';
 
     articleData.articles.forEach(article => {
         articleDetails += `
             <div class="articlePreview">
-                <h2 onClick="hideAll(); pageChange(); openInfo(${article.id});">${article.title}</h2>
+                <h2 onClick="hideAll(); onRegionSelect(${article.id});">${article.title}</h2>
                 <div class="imgcaption">
-                    <p>By <b>${article.author}</b>on ${article.date}</p>
+                    <p>By <b>${article.author}</b> on ${article.date}</p>
                 </div>
                 <img src="${article.imgUrl}" alt="${article.imgAlt}" class="imgsmall">
                 <p>${article.description}</p>
-                <br>
             </div>
         `;
     });
 
-    articleWindow.innerHTML = `
-        <div class="heading">
-        <h1>All Articles</h1>
-        <h3 id="close" onClick="closeInfo();"">X</h3>
-        </div>
-
-        <div class="articleBody">
-            ${articleDetails}
-        </div>
-    `
+    openWindow('All Articles', articleDetails);
 }
 
-function openRandom(){
-    let random = regions[Math.floor(Math.random()*6)];
-
-    hideAll();
-    openInfo(random);
+function onRandomSelect(){
+    let random = regions[Math.floor(Math.random()*regions.length)];
+    onRegionSelect(random);
 }
 
-function openAuthor(){
-    hideAll();
-    pageChange();
-    articleWindow.style.width = "40%";
-
+function onAuthorButtonSelect(){
     let authorDetails = '';
 
     articleData.authors.forEach(author => {
@@ -192,14 +144,5 @@ function openAuthor(){
         `;
     });
 
-    articleWindow.innerHTML = `
-        <div class="heading">
-        <h1>About the Authors</h1>
-        <h3 id="close" onClick="closeInfo();"">X</h3>
-        </div>
-
-        <div class="articleBody">
-            ${authorDetails}
-        </div>
-    `
+    openWindow('About the Authors', authorDetails);
 }
