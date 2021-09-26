@@ -43,7 +43,7 @@ function onRegionSelect(region){
 }
 
 function openWindow(heading, content){
-    toTop();
+    scrollToTop();
 
     pageInfo.style.transform = "translateX(-100%)";
     westerosMap.style.width = "60%";
@@ -99,7 +99,7 @@ function closeWindow(){
 }
 
 //Resets page to top if user has scrolled down and clicks on one of the buttons
-function toTop(){
+function scrollToTop(){
     scroll(0,0)
 }
 
@@ -109,7 +109,7 @@ function onAllSelect(){
     articleData.articles.forEach(article => {
         articleDetails += `
             <div class="articlePreview">
-                <h2 onClick="hideAll(); onRegionSelect(${article.id});">${article.title}</h2>
+                <h2 onClick="closeInfo(); onRegionSelect(${article.id});">${article.title}</h2>
                 <div class="imgcaption">
                     <p>By <b>${article.author}</b> on ${article.date}</p>
                 </div>
@@ -123,6 +123,7 @@ function onAllSelect(){
 }
 
 function onRandomSelect(){
+    //Get random region from regions array
     let random = regions[Math.floor(Math.random()*regions.length)];
     onRegionSelect(random);
 }

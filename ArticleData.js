@@ -79,7 +79,7 @@ const articleData = {
             "name": "Aidan Byrne",
             "authorImgUrl": "images/aidan.png",
             "authorImgAlt": "Image of Aidan Byrne",
-            "about": "I’m Aidan and I'm from Ashbourne, Co. Meath. I was born on July 24th 1999 and I am currently studying Multimedia at Dublin City University. I have taught myself graphic design and have been doing so since I was 12 years old. I’ve become increasingly more interested with other forms of media such as web development, photography and video since beginning to study my degree. I hope to eventually go on to create my own media production company at some point in the future."
+            "about": "I’m Aidan and I'm from Ashbourne, Co. Meath. I am currently studying Multimedia at Dublin City University. I have taught myself graphic design and have been doing so since I was 12 years old. I’ve become increasingly more interested with other forms of media such as web development, photography and video since beginning to study my degree. I hope to eventually go on to create my own media production company at some point in the future."
         },
         {
             "name": "Conor McElearney",
